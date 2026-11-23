@@ -71,11 +71,7 @@ static inline void try_umount(const char *mnt, int flags)
 		return;
 	}
 
-#ifndef KSU_HAS_PATH_UMOUNT
-    ksu_umount_mnt(mnt, &path, flags);
-#else
-	ksu_umount_mnt(&path, flags);
-#endif
+	ksu_umount_mnt(mnt, &path, flags);
 }
 static inline int ksu_handle_umount(struct cred *new, const struct cred *old)
 {

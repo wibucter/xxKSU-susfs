@@ -1,3 +1,7 @@
+#ifdef CONFIG_KSU_SUSFS
+bool susfs_is_boot_completed_triggered __read_mostly = false;
+#endif
+
 static int do_grant_root(void __user *arg)
 {
 	int ret;

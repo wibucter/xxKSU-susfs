@@ -182,6 +182,7 @@
 #endif
 
 #ifdef CONFIG_KSU_SUSFS
+#include <linux/namei.h>
 #include <linux/susfs.h>
 #endif // #ifdef CONFIG_KSU_SUSFS
 
