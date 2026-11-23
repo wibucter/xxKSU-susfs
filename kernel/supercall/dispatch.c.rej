@@ -1,0 +1,15 @@
+diff a/kernel/supercall/dispatch.c b/kernel/supercall/dispatch.c	(rejected hunks)
+@@ -1,4 +1,13 @@
+ #include "../manager/apk_sign.h"
++#ifdef CONFIG_KSU_SUSFS
++#include <linux/namei.h>
++#include <linux/susfs.h>
++#include "objsec.h"
++#endif // #ifdef CONFIG_KSU_SUSFS
++
++#ifdef CONFIG_KSU_SUSFS
++bool susfs_is_boot_completed_triggered __read_mostly = false;
++#endif // #ifdef CONFIG_KSU_SUSFS
+ 
+ static int do_grant_root(void __user *arg)
+ {
